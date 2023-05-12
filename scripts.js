@@ -1,0 +1,4 @@
+let gameConfig = [];
+
+function getCustomGame() {
+}
