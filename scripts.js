@@ -86,6 +86,8 @@ function insertGivens(given) {
   for (let i = 0; i < given.length; i++) {
     cells[i].innerHTML = '';
     cells[i].classList.remove('given');
+    cells[i].classList.remove('user-answer');
+    cells[i].classList.remove('error');
     if (given.charAt(i) != '0') {
       cells[i].innerHTML = given.charAt(i);
       cells[i].classList.add('given');
