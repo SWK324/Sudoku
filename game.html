@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="game.css"/>
   </head>
   <body>
+    <div class="options">
+      <h1>Select a difficulty</h1>
+      <div class="option" id="easy" onclick="insertGivens(easy)" href="game.html">Easy</div>
+      <div class="option" id="medium" onclick="insertGivens(medium)" href="game.html">Medium</div>
+      <div class="option" id="hard" onclick="insertGivens(hard)" href="game.html">Hard</div>
+    </div>
     <div class=header-container>
       <h1>Sudoku</h1>
     </div>
-    <div id="game-board">
-      
-    </div>
+    <div id ="game-board"></div>
     <script src="scripts.js"></script>
   </body>
 </html> 

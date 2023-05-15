@@ -1,13 +1,15 @@
-let gameConfig = [];
 let easy    = "054091000000467009010002000700000000005080060080009002000040000029000000500200106";
 let medium  = "000500003070200000800000710000800034020040006700006200003000000400000368605000040";
 let hard    = "670040000040300000900070020400007060500006314009000057200000000014000030000500209";
 let cells = document.getElementsByClassName("cell");
 let gameBoard = document.getElementById("game-board");
 let selected = 0;
+
+
+
 generateBoard();
-insertGivens(easy);
 checkValid();
+
 
 document.addEventListener('keydown', (event) => {
   var code = event.code;
@@ -23,17 +25,29 @@ document.addEventListener('keydown', (event) => {
       if (selected - 9 >= 0) {
         selectCell(selected - 9);
       }
+      else {
+        selectCell(selected + 72);
+      }
     } else if (code === 'ArrowDown') {
       if (selected + 9 < 81) {
         selectCell(selected + 9);
       }
+      else {
+        selectCell(selected - 72);
+      }
     } else if (code === 'ArrowLeft') {
-      if (selected - 1 >= 0) {
+      if (selected % 9 > 0) {
         selectCell(selected - 1);
       }
+      else {
+        selectCell(selected + 8);
+      }
     } else if (code === 'ArrowRight') {
-      if (selected + 1 < 81) {
+      if (selected % 9 < 8) {
         selectCell(selected + 1);
+      }
+      else {
+        selectCell(selected - 8);
       }
     }
   }
@@ -70,6 +84,8 @@ function generateBoard() {
 
 function insertGivens(given) {
   for (let i = 0; i < given.length; i++) {
+    cells[i].innerHTML = '';
+    cells[i].classList.remove('given');
     if (given.charAt(i) != '0') {
       cells[i].innerHTML = given.charAt(i);
       cells[i].classList.add('given');
